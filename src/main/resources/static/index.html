@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="taskApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://kit.fontawesome.com/af9465482e.js" crossorigin="anonymous"></script>
+</head>
+
+<body ng-controller="TaskController">
+
+  <div class="bar">
+    <h1>Task Management App</h1>
+  </div>
+
+  <div class="form-container">
+    <h2 ng-show="!editMode">Add New Task</h2>
+    <h2 ng-show="editMode">Edit Task</h2>
+
+    <form ng-submit="addTask()">
+      <input type="text" ng-model="newTask.title" placeholder="Title" required>
+      <input type="text" ng-model="newTask.description" placeholder="Description" required>
+      <br>
+      <button type="submit">Add Task</button>
+      <button type="button" ng-click="clearForm()">Clear</button>
+    </form>
+  </div>
+
+  <hr>
+
+  <div class="task-list-container">
+    <h2>Task List</h2>
+    <ul>
+      <li ng-repeat="task in tasks">
+        <label class="title">{{ task.title }}</label>
+        <label>{{ task.description }}</label>
+        <input type="checkbox" ng-model="task.status" ng-change="statusChanged(task)">
+        <button ng-click="editTask(task)"><i class="fa-regular fa-pen-to-square"></i></button>
+        <button ng-click="deleteTask(task.id)"><i class="fa-regular fa-trash-can"></i></button>
+      </li>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
