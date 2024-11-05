@@ -1,6 +1,6 @@
 #### HOW TO RUN
 
-1. Ensure you have Java installed. If not, download and install Java from `https://www.java.com/en/download/`
+1. Ensure you have JDK 23 or above installed. If not, download and install the latest JDK here `https://www.oracle.com/my/java/technologies/downloads/`
 
 2. Download `task-management-app.jar` in the repository.
 
